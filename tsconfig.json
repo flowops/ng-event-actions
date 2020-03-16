@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "event-actions": [
+        "dist/event-actions"
+      ],
+      "event-actions/*": [
+        "dist/event-actions/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

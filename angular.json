@@ -2,5 +2,41 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "event-actions": {
+      "projectType": "library",
+      "root": "projects/event-actions",
+      "sourceRoot": "projects/event-actions/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/event-actions/tsconfig.lib.json",
+            "project": "projects/event-actions/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/event-actions/src/test.ts",
+            "tsConfig": "projects/event-actions/tsconfig.spec.json",
+            "karmaConfig": "projects/event-actions/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/event-actions/tsconfig.lib.json",
+              "projects/event-actions/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "event-actions"
 }
